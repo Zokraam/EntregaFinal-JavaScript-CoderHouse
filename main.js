@@ -17,15 +17,19 @@ total_prod = [];
 function Main() {
   let usuario = prompt("Ingrese su nombre");
   op = prompt("Holaaa " + usuario + ", elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir");
-  while (op != 7) {
-    total_compra = total_compra + buscarPrecio(op);
-    total_prod.push(nombrePrecio[op - 1]);
-    alert("Productos seleccionados:\n" + total_prod.join("\n") + "\nCOMPRA TOTAL: $" + total_compra);
-    op = prompt("Elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir \nCOMPRA TOTAL: $" + total_compra);
-    if (op == 7) {
-      alert("Compra finalizada, muchas gracias por elegirnos!!");
+  if (op != "") {
+    while (op != 7) {
+      if (op == "") {
+        alert("Ingrese un valor");
+      } else {
+        total_compra = total_compra + buscarPrecio(op);
+        total_prod.push(nombrePrecio[op - 1]);
+        alert("Productos seleccionados:\n" + total_prod.join("\n") + "\nCOMPRA TOTAL: $" + total_compra);
+      }
+      op = prompt("Elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir \nCOMPRA TOTAL: $" + total_compra);
     }
   }
+  alert("Compra finalizada, muchas gracias por elegirnos!!");
 }
 
 function buscarPrecio(op) {
