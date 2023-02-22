@@ -16,7 +16,7 @@ total_prod = [];
 
 function Main() {
   let usuario = prompt("Ingrese su nombre");
-  op = prompt("Holaa " + usuario + ", elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir");
+  op = prompt("Holaaa " + usuario + ", elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir");
   while (op != 7) {
     total_compra = total_compra + buscarPrecio(op);
     total_prod.push(nombrePrecio[op - 1]);
