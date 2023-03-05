@@ -37,3 +37,4 @@ function buscarPrecio(op) {
   return buscarPrecio;
 }
 Main();
+("hola");
