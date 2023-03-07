@@ -1,39 +1,51 @@
-const productos = [
-  { id: 1, nombre: "Remera", precio: 2500 },
-  { id: 2, nombre: "Jean", precio: 4000 },
-  { id: 3, nombre: "Zapatilla", precio: 12500 },
-  { id: 4, nombre: "Musculosa", precio: 2000 },
-  { id: 5, nombre: "Short", precio: 3000 },
-  { id: 6, nombre: "Camisa", precio: 4500 },
-];
+// Variables globales
+let items = [];
 
-let listado = productos.map((productos) => productos.id + "_" + productos.nombre + " $" + productos.precio);
-let nombrePrecio = productos.map((productos) => productos.nombre + " $" + productos.precio);
-let precios = productos.map((productos) => productos.precio);
-
-total_compra = 0;
-total_prod = [];
-
-function Main() {
-  let usuario = prompt("Ingrese su nombre");
-  op = prompt("Holaaa " + usuario + ", elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir");
-  if (op != "") {
-    while (op != 7) {
-      if (op == "") {
-        alert("Ingrese un valor");
-      } else {
-        total_compra = total_compra + buscarPrecio(op);
-        total_prod.push(nombrePrecio[op - 1]);
-        alert("Productos seleccionados:\n" + total_prod.join("\n") + "\nCOMPRA TOTAL: $" + total_compra);
-      }
-      op = prompt("Elige opcion del producto deseado:\n" + listado.join("\n") + "\n7_Salir \nCOMPRA TOTAL: $" + total_compra);
-    }
+// Función para agregar un item
+function addItem(e) {
+  e.preventDefault();
+  const input = document.getElementById("item");
+  const value = input.value.trim();
+  if (value) {
+    // Agregar el item al array
+    items.push(value);
+    // Guardar el array en el Storage
+    localStorage.setItem("items", JSON.stringify(items));
+    // Actualizar la lista en el DOM
+    updateList();
+    // Limpiar el campo de texto
+    input.value = "";
   }
-  alert("Compra finalizada, muchas gracias por elegirnos!!");
 }
 
-function buscarPrecio(op) {
-  const buscarPrecio = precios[op - 1];
-  return buscarPrecio;
+// Función para actualizar la lista en el DOM
+function updateList() {
+  const list = document.getElementById("list");
+  // Limpiar la lista existente
+  list.innerHTML = "";
+  // Recorrer el array de items y agregarlos a la lista
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    list.appendChild(li);
+  });
 }
-Main();
+
+// Función para cargar los items almacenados en el Storage
+function loadItems() {
+  const storedItems = localStorage.getItem("items");
+  if (storedItems) {
+    // Convertir el JSON almacenado en el Storage en un array
+    items = JSON.parse(storedItems);
+    updateList();
+  }
+}
+
+// Evento de carga de la página
+window.addEventListener("load", () => {
+  loadItems();
+});
+
+// Evento de envío del formulario
+const form = document.querySelector("form");
+form.addEventListener("submit", addItem);
