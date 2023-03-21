@@ -1,25 +1,22 @@
 body {
-  font-family: Arial, sans-serif;
+  background-image: url(../img/background.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
-h1 {
-  text-align: center;
+@media (max-width: 1200px) {
+  body {
+    background-image: url(../img/background.jpg);
+    background-size: auto 100vh;
+    background-position: 35% 100vh;
+  }
 }
 
-form {
-  display: flex;
-  align-items: center;
+header {
+  background-color: rgb(255, 255, 255);
+  max-width: 100%;
 }
 
-label,
-input {
-  margin-right: 10px;
-}
-
-button {
-  margin-left: 10px;
-}
-
-li {
-  margin-bottom: 10px;
+.logo {
+  max-width: 20vh;
 }
