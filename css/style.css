@@ -13,10 +13,24 @@ body {
 }
 
 header {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.733);
   max-width: 100%;
 }
 
 .logo {
-  max-width: 21vh;
+  max-width: 15vh;
+}
+
+.carrito {
+  max-width: 5vh;
+}
+
+#parrafo {
+  margin: 2rem;
+  color: white;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.733);
+  max-width: 100%;
 }
