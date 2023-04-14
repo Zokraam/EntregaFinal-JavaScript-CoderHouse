@@ -17,7 +17,14 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <title>MarcosGuitar</title>
   </head>
   <body>
@@ -28,13 +35,13 @@
             <a href="index.html"><img src="./img/Logo3.png" class="logo" alt="..." /></a>
           </div>
           <div class="col-4 text-end">
-            <a href="index.html"><img src="./img/carrito.png" class="carrito" alt="" /></a>
+            <button id="boton-carrito"><i class="fas fa-shopping-cart" style="color: #ffffff"></i><span id="contadorCarrito">0</span></button>
           </div>
         </div>
       </div>
       <div class="text-center"></div>
     </header>
-    <main>
+    <main id="contenedor-productos">
       <div class="container text-center">
         <p id="parrafo">
           ¡Hola! Soy un profesor de guitarra y estoy aquí para ayudarte a descubrir y desarrollar tu talento musical. Tengo una amplia experiencia en
@@ -44,51 +51,26 @@
         </p>
       </div>
       <div class="container text-center">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card text-light" style="background-color: #0000009f; height: 100%">
-              <img src="./img/principiante.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">$3000</h5>
-                <p class="card-text">
-                  20 videos cortos que enseñan acordes, rasgueos, técnicas básicas y canciones populares en un enfoque paso a paso.
-                </p>
-                <a href="#" class="btn btn-light">Añadir al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-light" style="background-color: #0000009f; height: 100%">
-              <img src="./img/intermedio.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">$3500</h5>
-                <p class="card-text">
-                  20 videos que cubren escalas, arpegios, técnicas de mano derecha, teoría musical y canciones más complejas en diversos géneros.
-                </p>
-                <a href="#" class="btn btn-light">Añadir al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-light" style="background-color: #0000009f; height: 100%">
-              <img src="./img/avanzado.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">$4000</h5>
-                <p class="card-text">
-                  20 videos exxplorando técnicas de guitarra complejas como tapping, sweep picking y fingerstyle. Aprende a improvisar solos y a tocar
-                  en diferentes tonalidades.
-                </p>
-                <a href="#" class="btn btn-light">Añadir al carrito</a>
-              </div>
-            </div>
-          </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="card__container">
+          <!-- Cards -->
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div class="modal-contenedor">
+        <div class="modal-carrito anyClass">
+          <h3>Carrito</h3>
+          <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+          <div id="carrito-contenedor"></div>
+          <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+          <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
         </div>
       </div>
     </main>
     <footer class="fixed-bottom">
       <div class="container">
         <div class="container mb-1 text-center">
-          <h5 class="text-light mt-3">SEGUINOS EN REDES</h5>
+          <h5 class="text-light mt-3">SEGUIME EN LAS REDES</h5>
           <h5 class="text-light">------------------------</h5>
           <div class="btn-group p-1" role="group" aria-label="Basic outlined example">
             <a href="https://www.facebook.com" target="_blank" class="text-light link-warning text-decoration-none pe-2 pt-1 ps-2"
@@ -107,4 +89,7 @@
       </div>
     </footer>
   </body>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="./main.js"></script>
+  <script src="./modal.js"></script>
 </html>

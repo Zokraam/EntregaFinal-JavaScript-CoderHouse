@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Nivel principiante",
+    "descripcion": "20 videos cortos que enseñan acordes, rasgueos, técnicas básicas y canciones populares en un enfoque paso a paso.",
+    "imagen": "./img/principiante.jpg",
+    "precio": 3000
+  },
+  {
+    "id": 2,
+    "nombre": "Nivel intermedio",
+    "descripcion": "20 videos que cubren escalas, arpegios, técnicas de mano derecha, teoría musical y canciones más complejas en diversos géneros.",
+    "imagen": "./img/intermedio.jpg",
+    "precio": 3500
+  },
+  {
+    "id": 3,
+    "nombre": "Nivel avanzado",
+    "descripcion": "20 videos exxplorando técnicas de guitarra complejas como tapping, sweep picking y fingerstyle. Aprende a improvisar solos y a tocar en diferentes tonalidades.",
+    "imagen": "./img/avanzado.jpg",
+    "precio": 4000
+  }
+]
